@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath,wasysym, amsthm}
+
+\title{Semaine 2}
+\author{Joshua Freeman}
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+\setcounter{section}{4}
+\section{Disjonctions de cas}
+\begin{enumerate}
+    \item Soient $n,m \in \mathbb{N}.$ Il s'agit d'étudier si $\frac{(n+1)(m+1)(n+m+2)}{2}$ est entier. Notons que pour ceci il suffit qu'un des facteurs en numérateur soit pair. Supposons d'une part que 
+    $n\equiv 0 \equiv m \mod 2.$ Dans ce cas, \[n+m+2 \equiv 0 \mod 2,\]
+    et notre propriété est démontrée. Dans tous les cas restants, au moins l'un des deux est impair. Sans perte de généralité, supposons que c'est $n.$ On aura alors $n+1 \equiv 0 \mod 2$ et $t$ sera entier.
+    \item Il s'agit de montrer $v \equiv 0 \mod 2 \iff x,y,z $ sont tous pairs. Notons pour cela qu'\textbf{un carré est toujours congru à $0$ ou $1$ modulo $4$}.
+    \begin{enumerate}
+        \item $\implies.$  Considérons le cas où il y a deux nombres du triplet $x,y,z$ pairs et un impair. Dans ce cas $v$ est congru à $2$ modulo $4,$ ce qui est absurde pour un carré en général. Ce cas n'arrivera donc jamais tant que $v,x,y,z, $ satisferont $x^2+y^2+z^2=v^2$ (de la même manière pour $x,y,z$ tous impairs). D'autre part qu'en est-il si un deux cette fois sont pairs et un seul impair ? Puisque $v^2$ est alors congru à $1 \mod 4,$ ceci est contradictoire avec le fait qu'il soit pair. Or dans le cas où tous les trois $xy,$ et $z$ sont pairs on a bien $v^2 \equiv 0 \mod 4 \implies v \equiv 0 \mod 2.$ Ayant dénombré tous les cas possibles, on peut affirmer que $v\equiv 0 \mod 2 \implies x,y,z $ tous pairs.
+        \item $\impliedby.$ Trivialement, on peut montrer qu'on a déjà prouvé cela en citant ce qu'on a dit plus haut :
+        \\\begin{tabular}{|p{15cm}}
+        Dans le cas où tous les trois $xy,$ et $z$ sont pairs on a bien $v^2 \equiv 0 \mod 4 \implies v \equiv 0 \mod 2.$\\
+\end{tabular}
+    \end{enumerate}
+\end{enumerate}
+cqfd
+\section{Implications}
+\begin{enumerate}
+    \item $x^2+ax+b=0$
+    \begin{enumerate}
+        \item $P\implies Q.$
+    Supposons que $z, \overline{z}$ soient les deux solutions de l'équation. Alors, par le théorème fondamental de l'algèbre, 
+    \[x^2 +ax +b = (x-z)(x-\overline{z})\iff a=-(z+\overline{z}) \wedge b= z\overline{z}.\]
+    En tant que nombre complexe, $z=\alpha + i\beta =\rho e^{i\phi}, \rho,\phi, \alpha ,\beta \in \mathbb{R}.$ On remarque alors que $z\overline{z}=\rho^2e^{i\phi -i\phi}=\rho ^2 \in \mathbb{R}, $ et que $-(z+\overline{z})=-(\alpha+\beta i+\alpha-\beta i)=-2\alpha \in \mathbb{R}.$ Ainsi  $a, b \in \mathbb{R}.$
+
+    \item Contre-exemple pour $Q \overset{?}{\implies} P.$
+    
+    Soit $a=2, b=1.$ Alors les deux solutions sont $x_1=x_2=-1.$ On remarque que $x_1\neq \overline{x_2}.$
+    \end{enumerate}
+    
+    \item $(A=B) \text{ ?? } (B\setminus A = A \setminus B)$
+    \begin{enumerate}
+        \item $A=B \implies B\setminus A =A\setminus B.$
+        $A=B \implies B \setminus B = B \setminus A = A \setminus B.$ 
+        \item $B\setminus A =A\setminus B \implies  B=A$
+        \begin{proof}
+        Soit Soit $A,B, B\setminus A = A \setminus B.$ Alors on a 
+        \[(x\in A \wedge x \not \in B)\iff (x\in B \wedge x \not \in A).\] Ceci est équivalent à 
+        \[\left[\neg ((x\in A )\wedge (x \not \in B))\vee ((x \in B )\wedge(x \not \in A))\right]\wedge \left[\neg (x \in B \wedge x \not \in A) \vee (x \in A \wedge x \not \in B) \right].\]On réécrit brièvement ceci (grâce aux lois de Morgan) comme
+        \[\left[ ( \underbrace{(x\not\in A )\vee (x \in B))}_r\vee \underbrace{((x \in B )\wedge (x \not \in A))}_p\right]\wedge \left[ \underbrace{(x \not\in B \vee x  \in A)}_s \vee \underbrace{(x \in A \wedge x \not \in B)}_q \right].\]
+        Comme $p\impliedby r$ et $q \impliedby s,$ on peut écrire
+        \[\left[x\not\in A \vee x  \in B\right]\wedge \left[x \not\in B \vee x \in A \right].\] Autrement dit,
+        \begin{equation}
+            x\in A \iff x \in B.
+        \end{equation}
+        On a donc bien que $A=B.$
+        \end{proof}
+        
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}
